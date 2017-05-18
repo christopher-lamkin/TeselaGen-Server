@@ -35,6 +35,5 @@ module.exports = function(){
   dnaObject.features = [];
   generateSequence(generateSequenceLength(10, 50));
   generateFeatures(dnaObject.sequenceLength);
-  console.log(dnaObject.features.length);
   return dnaObject;
 };
