@@ -18,7 +18,8 @@ var generateSequence = function(sequenceLength){
   };
 };
 
-var generateFeatures = function(featureNames, sequenceLength){
+var generateFeatures = function(sequenceLength){
+  var featureNames = ["CDS", "Promoter1", "Restriction Site 1", "Ribosome Binding Site", "Promoter 2", "CDS2"];
   var numberOfFeatures = Math.floor(Math.random() * 6);
 
   for (var i = 0; i < numberOfFeatures; i++){
@@ -28,9 +29,11 @@ var generateFeatures = function(featureNames, sequenceLength){
 
 var featureNames = ["CDS", "Promoter1", "Restriction Site 1", "Ribosome Binding Site", "Promoter 2", "CDS2"];
 
-generateSequence(generateSequenceLength(10, 50));
-generateFeatures(featureNames, dnaObject.sequenceLength);
 
 module.exports = function(){
+  dnaObject.sequence = "";
+  dnaObject.features = [];
+  generateSequence(generateSequenceLength(10, 50));
+  generateFeatures(dnaObject.sequenceLength);
   return dnaObject;
 };
